@@ -355,28 +355,28 @@
 	timerId1 = setInterval("read1()",1000);
     }
 
-    function submit_form1()
-    {	
-        var form = document.getElementById('form1');
-	$.ajax({
-             type: "POST",
-             url: "./index.php/index/index/index",  
-             data: $('#form11').serializeArray(),
-	     dataType: 'json',
-             success: function(returndata){   
-             },
-	     error: function(xhr, status, error){
-		 alert("error after submit!");
-		 var errorMessage = xhr.status + ': ' + xhr.statusText
-      		 alert('Error - ' + errorMessage);
-	     }
-        });
-
-        //form.submit();
-        //$("#Modal1").on("hidden.bs.modal", function() {
-        //    $(this).removeData("bs.modal");
-        //});
-    }
+//    function submit_form1()
+//    {	
+//        var form = document.getElementById('form1');
+//	$.ajax({
+//             type: "POST",
+//             url: "./index.php/index/index/index",  
+//             data: $('#form11').serializeArray(),
+//	     dataType: 'json',
+//             success: function(returndata){   
+//             },
+//	     error: function(xhr, status, error){
+//		 alert("error after submit!");
+//		 var errorMessage = xhr.status + ': ' + xhr.statusText
+//      		 alert('Error - ' + errorMessage);
+//	     }
+//        });
+//
+//        //form.submit();
+//        //$("#Modal1").on("hidden.bs.modal", function() {
+//        //    $(this).removeData("bs.modal");
+//        //});
+//    }
 
     function stopAnalysis1() {
 	$('#confBtn1').prop("disabled",false);
@@ -478,23 +478,23 @@
 	timerId2 = setInterval("read2()",1000);
     }
 
-    function submit_form2()
-    {	
-        var form = document.getElementById('form2');
-	$.ajax({
-             type: "POST",
-             url: "./index.php/index/index/index",  
-             data: $('#form2').serializeArray(),
-	     dataType: 'json',
-             success: function(returndata){   
-             },
-	     error: function(xhr, status, error){
-		 alert("error after submit!");
-		 var errorMessage = xhr.status + ': ' + xhr.statusText
-      		 alert('Error - ' + errorMessage);
-	     }
-        });
-    }
+//    function submit_form2()
+//    {	
+//        var form = document.getElementById('form2');
+//	$.ajax({
+//             type: "POST",
+//             url: "./index.php/index/index/index",  
+//             data: $('#form2').serializeArray(),
+//	     dataType: 'json',
+//             success: function(returndata){   
+//             },
+//	     error: function(xhr, status, error){
+//		 alert("error after submit!");
+//		 var errorMessage = xhr.status + ': ' + xhr.statusText
+//      		 alert('Error - ' + errorMessage);
+//	     }
+//        });
+//    }
 
     function stopAnalysis2() {
 	$('#confBtn2').prop("disabled",false);
