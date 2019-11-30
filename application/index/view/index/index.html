@@ -1,0 +1,528 @@
+<!---<!DOCTYPE html>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style type="text/css">
+	<!--
+	div.scroll {
+	height: 400px;
+	width: 500px;
+	overflow-y: scroll;
+	border: 1px solid #666;
+	background-color: #ccc;
+	padding: 8px;
+	margin-top: 100px;
+	}
+	-->
+	</style>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+<!-- The First Module -->
+<div style="text-align: center;">
+
+<div name="Module1" style="height: 700px; width: 600px; padding: 70px; display:inline-block; background-image: url('__STATIC__/img/intro-carousel/3.jpg'); background-size:100% 100%;">
+
+<div name="btnGroup1">
+<button type="button" class="btn btn-secondary" id="confBtn1" name="confBtn1" data-toggle="modal" data-target="#Modal1">
+  Configuration I
+</button>
+<button type="button" class="btn btn-secondary" id="runBtn1" name="runBtn1" data-toggle="modal" data-target="#Modal12" style="margin-left: 30px;" onclick="Run1();" disabled>
+  Run
+</button>
+<button type="button" class="btn btn-secondary" id="stopBtn1" name="stopBtn1" style="margin-left: 30px;" onclick="stopAnalysis1();" disabled>Stop</button>
+<button type="button" class="btn btn-secondary" id="resetBtn1" name="resetBtn1" style="margin-left: 30px;" onclick="reset1();" disabled>Reset</button>
+</div>
+
+
+<!-- ConfigModal1 -->
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Configuration --- Module 1</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left">
+	<form id="form1" method="post">
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">1. Log Level</label>
+		<div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions11" id="inlineRadio11" value="Debug">
+		  <label class="form-check-label" for="inlineRadio11">Debug</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions11" value="Info">
+		  <label class="form-check-label" for="inlineRadio11">Info</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions11" value="Warning">
+		  <label class="form-check-label" for="inlineRadio11">Warning</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions11" value="Error">
+		  <label class="form-check-label" for="inlineRadio11">Error</label>
+		</div>
+		</div>
+		<!--- <div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+		  <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+		</div> --->
+	  </div>
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">2. MI Log</label>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions12" id="inlineRadio12" value="ON">
+		  <label class="form-check-label" for="inlineRadio12">ON</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions12" value="OFF">
+		  <label class="form-check-label" for="inlineRadio12">OFF</label>
+		</div>
+	  </div>
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">3. Band</label>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions13" id="inlineRadio13" value="7">
+		  <label class="form-check-label" for="inlineRadio13">7</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions13" value="13">
+		  <label class="form-check-label" for="inlineRadio13">13</label>
+		</div>
+	  </div>
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">4. Bandwidth</label>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions14" id="inlineRadio14" value="5">
+		  <label class="form-check-label" for="inlineRadio14">5</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions14" value="10">
+		  <label class="form-check-label" for="inlineRadio14">10</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions14" value="20">
+		  <label class="form-check-label" for="inlineRadio14">20</label>
+		</div>
+	  </div>
+	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" name = "Sumbitbtn1" class="btn btn-primary" onclick="writeConfig1();" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scroll", style="margin:0 auto; margin-top: 80px; text-align: center; height: 400px; background:#FFF; color:#000;">
+    <p id = "showResult1"></p>
+</div>
+</div>
+
+
+<!---The Second Module--->
+<div name="Module2" style="width: 600px; height: 700px; padding: 70px; display:inline-block; background-image: url('__STATIC__/img/intro-carousel/2.jpg'); background-size:100% 100%;">
+
+<div name="btnGroup">
+<button type="button" class="btn btn-secondary" id="confBtn2" name="confBtn2" data-toggle="modal" data-target="#Modal2">
+  Configuration II
+</button>
+<button type="button" class="btn btn-secondary" id="analysisBtn2" name="analysisBtn2" data-toggle="modal" data-target="#AnalysisModal" style="margin-left: 40px;" disabled>
+  Analysis
+</button>
+<button type="button" class="btn btn-secondary" id="stopBtn2" name="stopBtn2" style="margin-left: 40px;" onclick="stopAnalysis2();" disabled>Stop</button>
+<button type="button" class="btn btn-secondary" id="resetBtn2" name="resetBtn2" style="margin-left: 40px;" onclick="reset2();" disabled>Reset</button>
+</div>
+
+<!-- ConfigModal2 -->
+<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Configuration --- Module 2</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left">
+	<form id="form2" method="post">
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">1. Log Level</label>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions21" id="inlineRadio21" value="Debug">
+		  <label class="form-check-label" for="inlineRadio21">Debug</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions21" value="Info">
+		  <label class="form-check-label" for="inlineRadio21">Info</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions21" value="Waring">
+		  <label class="form-check-label" for="inlineRadio21">Waring</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions21" value="Error">
+		  <label class="form-check-label" for="inlineRadio21">Error</label>
+		</div>
+	  </div>
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">2. MI Log      </label>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions22" id="inlineRadio22" value="ON">
+		  <label class="form-check-label" for="inlineRadio22">ON</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions22" value="OFF">
+		  <label class="form-check-label" for="inlineRadio22">OFF</label>
+		</div>
+	  </div>
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">3. Band</label>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions23" id="inlineRadio23" value="7">
+		  <label class="form-check-label" for="inlineRadio23">7</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions23" value="13">
+		  <label class="form-check-label" for="inlineRadio23">13</label>
+		</div>
+	  </div>
+	  <div class="form-group row">
+	    <label class="col-sm-3 col-form-label">4. Bandwith</label>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions24" id="inlineRadio24" value="5">
+		  <label class="form-check-label" for="inlineRadio24">5</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions24" value="10">
+		  <label class="form-check-label" for="inlineRadio24">10</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="RadioOptions24" value="20">
+		  <label class="form-check-label" for="inlineRadio24">120</label>
+		</div>
+	  </div>
+	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" name = "Sumbitbtn2" class="btn btn-primary" onclick="writeConfig2();" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--AnalysisModal-->
+<div class="modal fade" id="AnalysisModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Choose Analysis Type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left">
+	<form id="form3" method="post">
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="analysisRadios" id="analysisRadios1" value="Analysis 1" checked>
+		  <label class="form-check-label" for="analysisRadios1">
+		    Analysis 1
+		  </label>
+		</div>
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="analysisRadios" id="analysisRadios2" value="Analysis 2">
+		  <label class="form-check-label" for="analysisRadios2">
+		    Analysis 2
+		  </label>
+		</div>
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="analysisRadios" id="analysisRadios3" value="Analysis 3">
+		  <label class="form-check-label" for="analysisRadios3">
+		    Analysis 3
+		  </label>
+		</div>
+	</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name = "Sumbitbtn2" class="btn btn-primary" onclick="Run2()" data-dismiss="modal">Run</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="scroll", style="margin:0 auto; margin-top: 80px; text-align: center; height: 400px; background:#FFF; color:#000;">
+    <p id = "showResult2"></p>
+</div>
+
+</div>
+
+
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+    var timerId1 = -1;
+
+    function writeConfig1() {	
+	if ($('#form1').serializeArray().length != 4) {
+	    alert("Please choose all the options.")
+	    return;
+   	}
+
+	$('#runBtn1').prop("disabled",false);
+	$('#stopBtn1').prop("disabled",true);
+	$('#resetBtn1').prop("disabled",true);
+
+	$.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: $('#form1').serializeArray(),
+	     dataType: 'json',
+             success: function(returndata){   
+             },
+	     error: function(xhr, status, error){
+		 alert("error when writting config!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+
+        //form.submit();
+        //$("#Modal1").on("hidden.bs.modal", function() {
+        //    $(this).removeData("bs.modal");
+        //});
+    }
+
+    function read1() {
+           $.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: {'readSign1':"true"},
+	     dataType: 'json',
+             success: function(returndata){   
+		console.log(returndata);   
+		$('#showResult1').html(returndata)
+		//alert("success!");
+             },
+	     error: function(xhr, status, error){
+		 alert("error!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+    }
+
+    function Run1() {
+	$('#confBtn1').prop("disabled",true);
+	$('#stopBtn1').prop("disabled",false);
+	$('#resetBtn1').prop("disabled",true);
+
+	$.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: {'runSign1':"true"},
+	     dataType: 'json',
+             success: function(returndata){   
+             },
+	     error: function(xhr, status, error){
+		 alert("error after running!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+	timerId1 = setInterval("read1()",1000);
+    }
+
+//    function submit_form1()
+//    {	
+//        var form = document.getElementById('form1');
+//	$.ajax({
+//             type: "POST",
+//             url: "./index.php/index/index/index",  
+//             data: $('#form11').serializeArray(),
+//	     dataType: 'json',
+//             success: function(returndata){   
+//             },
+//	     error: function(xhr, status, error){
+//		 alert("error after submit!");
+//		 var errorMessage = xhr.status + ': ' + xhr.statusText
+//      		 alert('Error - ' + errorMessage);
+//	     }
+//        });
+//
+//        //form.submit();
+//        //$("#Modal1").on("hidden.bs.modal", function() {
+//        //    $(this).removeData("bs.modal");
+//        //});
+//    }
+
+    function stopAnalysis1() {
+	$('#confBtn1').prop("disabled",false);
+	$('#runBtn1').prop("disabled",true);
+	$('#resetBtn1').prop("disabled",false);
+
+	$.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: {'stopSign1':"true"},
+	     dataType: 'json',
+             success: function(returndata){   
+             },
+	     error: function(xhr, status, error){
+		 alert("error when stopping!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+	if (timerId1 != -1) clearInterval(timerId1);   //(To solve: Multiple timerIds)
+    }
+
+    function reset1() {
+	stopAnalysis1();
+	$('#showResult1').empty(); 
+    }
+
+
+
+    var timerId2 = -1;
+
+    function writeConfig2() {	
+	if ($('#form2').serializeArray().length != 4) {
+	    alert("Please choose all the options.")
+	    return;
+   	}
+
+	$('#analysisBtn2').prop("disabled",false);
+	$('#stopBtn2').prop("disabled",true);
+	$('#resetBtn2').prop("disabled",true);
+
+	$.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: $('#form2').serializeArray(),
+	     dataType: 'json',
+             success: function(returndata){   
+             },
+	     error: function(xhr, status, error){
+		 alert("error when writting config!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+
+        //form.submit();
+        //$("#Modal1").on("hidden.bs.modal", function() {
+        //    $(this).removeData("bs.modal");
+        //});
+    }
+
+    function read2() {
+           $.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: {'readSign2':"true"},
+	     dataType: 'json',
+             success: function(returndata){   
+		console.log(returndata);   
+		$('#showResult2').html(returndata)
+		//alert("success!");
+             },
+	     error: function(xhr, status, error){
+		 alert("error!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+    }
+
+    function Run2() {
+	$('#confBtn2').prop("disabled",true);
+	$('#stopBtn2').prop("disabled",false);
+	$('#resetBtn2').prop("disabled",true);
+
+	$.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: {'runSign2':"true"},
+	     dataType: 'json',
+             success: function(returndata){   
+             },
+	     error: function(xhr, status, error){
+		 alert("error after running!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+	timerId2 = setInterval("read2()",1000);
+    }
+
+//    function submit_form2()
+//    {	
+//        var form = document.getElementById('form2');
+//	$.ajax({
+//             type: "POST",
+//             url: "./index.php/index/index/index",  
+//             data: $('#form2').serializeArray(),
+//	     dataType: 'json',
+//             success: function(returndata){   
+//             },
+//	     error: function(xhr, status, error){
+//		 alert("error after submit!");
+//		 var errorMessage = xhr.status + ': ' + xhr.statusText
+//      		 alert('Error - ' + errorMessage);
+//	     }
+//        });
+//    }
+
+    function stopAnalysis2() {
+	$('#confBtn2').prop("disabled",false);
+	$('#analysisBtn2').prop("disabled",true);
+	$('#resetBtn2').prop("disabled",false);
+
+	$.ajax({
+             type: "POST",
+             url: "./index.php/index/index/index",  
+             data: {'stopSign2':"true"},
+	     dataType: 'json',
+             success: function(returndata){   
+             },
+	     error: function(xhr, status, error){
+		 alert("error when stopping!");
+		 var errorMessage = xhr.status + ': ' + xhr.statusText
+      		 alert('Error - ' + errorMessage);
+	     }
+        });
+	if (timerId2 != -1) clearInterval(timerId2);   //(To solve: Multiple timerIds)
+    }
+
+    function reset2() {
+	stopAnalysis2()
+	$('#showResult2').empty(); 
+    }
+
+
+</script>
+  </body>
+</html>
