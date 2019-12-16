@@ -1,1 +1,1 @@
-This is the website interface, based on ThinkPHP framework, which could run shell scripts on linux.
+This is the website interface that could run shell scripts on Linux, based on ThinkPHP framework.
